@@ -1,0 +1,22 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:NotABook">
+	<Design.PreviewWith>
+		<controls:NoteListItemControl />
+	</Design.PreviewWith>
+
+	<Style Selector="controls|NoteListItemControl">
+
+		<!-- Set Defaults -->
+		<Setter Property="Template">
+			<ControlTemplate>
+				<ListBoxItem Background="{ DynamicResource Background600 }">
+					<StackPanel Orientation="Horizontal">
+						<Label Content="{ TemplateBinding NoteTitle }" HorizontalAlignment="Left" />
+						<Label Content="{ TemplateBinding NoteDate }" HorizontalAlignment="Right" />
+					</StackPanel>
+				</ListBoxItem>
+			</ControlTemplate>
+		</Setter>
+	</Style>
+</Styles>

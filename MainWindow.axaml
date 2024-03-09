@@ -2,28 +2,35 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        Width="800" Height="450"
+        Width="927" Height="618"
         x:Class="NotABook.MainWindow"
-        Title="NotABook">
-	<Grid Height="425" Width="775">	
+		xmlns:local="clr-namespace:NotABook"
+        Title="NotABook" Background="{ DynamicResource Background900 }">
+	<Grid Height="600" Width="900">	
 		<!-- Grid shown on startup -->
-		<Grid Name="StartGrid" IsVisible="True">
-			<Grid Width="375" HorizontalAlignment="Left">
-				<TextBlock Text="Welcome to NotABook!" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-				
-				<ListBox Name="NoteList">
-				</ListBox>
-				
+		<Grid Name="StartGrid" IsVisible="False">
+			<Grid Width="445" HorizontalAlignment="Left">
+				<local:NoteListControl></local:NoteListControl>
 			</Grid>
-			<Grid Width="375" HorizontalAlignment="Right">
-				<Button Name="NewNoteButton" Content="New Note" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+			<Grid Width="445" HorizontalAlignment="Right" Name="CalendarGrid">
+				<local:CalendarControl></local:CalendarControl>
+				<Button Name="NewNoteButton" Content="New Note" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
 			</Grid>
 		</Grid>
 
 		<!-- Grid shown on note selection -->
-		<Grid Name="NoteGrid" IsVisible="False">
-			<!-- Content of the second grid goes here -->
-			<TextBlock Text="This is the second grid!" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<Grid Name="NoteGrid" IsVisible="True">
+			<Grid Width="590" HorizontalAlignment="Left" Background="{ DynamicResource Background800 }">
+				<TextBlock Text="Note Data" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+			</Grid>
+			<Grid Width="300" HorizontalAlignment="Right">
+				<Grid Height="295" VerticalAlignment="Top">
+					<local:CalendarControl></local:CalendarControl>
+				</Grid>
+				<Grid Height="295" VerticalAlignment="Bottom">
+					<local:NoteListControl></local:NoteListControl>
+				</Grid>
+			</Grid>
 		</Grid>
 	</Grid>
 </Window>
