@@ -8,6 +8,7 @@
              x:Class="NotABook.NoteListControl">
 	<ListBox Background="{ DynamicResource Background800 }" Name="NotePanel">
 		<Label Content="Note List"></Label>
+		<local:NoteListItemControl />
 		<controls:NoteListItemControl NoteTitle="Note 1" NoteDate="2021-01-01" NoteWidth="600"/>
 		<controls:NoteListItemControl NoteTitle="Note 2" NoteDate="2021-01-02" NoteWidth="600"/>
 		<controls:NoteListItemControl NoteTitle="Note 3" NoteDate="2021-01-03" NoteWidth="600"/>
