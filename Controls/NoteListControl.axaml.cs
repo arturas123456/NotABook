@@ -6,7 +6,7 @@ namespace NotABook;
 
 public partial class NoteListControl : UserControl
 {
-    ListBox _NotePanel;
+    public static ListBox _NotePanel;
 
     public NoteListControl()
     {
@@ -19,7 +19,7 @@ public partial class NoteListControl : UserControl
         }
     }
 
-    public void AddNoteToList(string title, string date)
+    public static void AddNoteToList(string title, string date)
     {
         NoteListItemControl noteListItem = new NoteListItemControl();
         noteListItem.NoteTitle = title;

@@ -2,6 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace NotABook
 {
@@ -21,5 +22,7 @@ namespace NotABook
             this.AttachDevTools();
             #endif
         }
+
+
     }
 }

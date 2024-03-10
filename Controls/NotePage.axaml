@@ -9,7 +9,9 @@
 	<Grid Width="900" Height="600" VerticalAlignment="Center">
 		<Grid Name="NoteGrid">
 			<Grid Width="590" HorizontalAlignment="Left" Background="{ DynamicResource Background800 }">
-				<TextBlock Text="Note Data" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+				<TextBox x:Name="NoteText" TextWrapping="Wrap" AcceptsReturn="True" Height="500" Margin="20 50" VerticalAlignment="Top"/>
+				<TextBox x:Name="NoteTitle" TextWrapping="Wrap" AcceptsReturn="True" Height="30" Margin="20 10" VerticalAlignment="Top"/>
+				<Button x:Name="SaveButton" Content="Save" Width="100" Height="30" Margin="20 10" VerticalAlignment="Bottom" HorizontalAlignment="Right" HorizontalContentAlignment="Center"/>
 			</Grid>
 			<Grid Width="300" HorizontalAlignment="Right">
 				<Grid Height="295" VerticalAlignment="Top">
@@ -22,3 +24,5 @@
 		</Grid>
 	</Grid>
 </UserControl>
+
+<!--- <TextBlock Text="Note Data" HorizontalAlignment="Center" VerticalAlignment="Top"/> -->
