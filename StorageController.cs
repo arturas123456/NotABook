@@ -99,6 +99,18 @@ namespace NotABook
             }
 
             /// <summary>
+            /// Deletes a note by its ID.
+            /// </summary>
+            /// <param name="ID">Note ID.</param>
+            public static void Delete(int ID)
+            {
+                var notes = LoadNotes();
+                notes.RemoveAll(n => n.Id == ID);
+                SaveNotes(notes);
+            }
+            
+
+            /// <summary>
             /// Loads notes from the JSON file.
             /// </summary>
             /// <returns>List of notes.</returns>

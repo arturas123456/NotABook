@@ -19,4 +19,6 @@ public class NoteListItemControl : TemplatedControl
         get => GetValue(NoteDateProperty);
         set => SetValue(NoteDateProperty, value);
     }
+
+    
 }
