@@ -12,6 +12,25 @@ public partial class NoteListControl : UserControl
     {
         InitializeComponent();
         _NotePanel = this.FindControl<ListBox>("NotePanel");
+
+        for (int i = 0; i < 10; i++)
+        {
+            AddNoteToList("Example Note Title", "Example Note Date");
+        }
+    }
+
+    public void AddNoteToList(string title, string date)
+    {
+        NoteListItemControl noteListItem = new NoteListItemControl();
+        noteListItem.NoteTitle = title;
+        noteListItem.NoteDate = date;
+
+        _NotePanel.Items.Add(noteListItem);
+    }
+
+    public void ClearNoteList()
+    {
+        _NotePanel.Items.Clear();
     }
 
     private void InitializeComponent()

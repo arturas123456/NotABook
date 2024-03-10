@@ -7,33 +7,12 @@
 		xmlns:local="clr-namespace:NotABook"
 		xmlns:control="using:NotABook"
         Title="NotABook" Background="{ DynamicResource Background900 }">
-	<Grid Height="600" Width="900">	
+	<Grid Width="900" Height="600">	
 		<!-- Grid shown on startup -->
-		<Grid Name="StartGrid" IsVisible="True">
-			<Grid Width="445" HorizontalAlignment="Left">
-				<local:NoteListControl></local:NoteListControl>
-			</Grid>
-			<Grid Width="445" HorizontalAlignment="Right" Name="CalendarGrid">
-				<local:CalendarControl></local:CalendarControl>
-				<control:NoteListItemControl />
-				<Button Margin="10" Width="250" HorizontalContentAlignment="Center" Padding="10" Name="NewNoteButton" Foreground="{ DynamicResource Text50 }" Content="New Note" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-			</Grid>
-		</Grid>
+		<local:StartPage />
 
 		<!-- Grid shown on note selection -->
-		<Grid Name="NoteGrid" IsVisible="False">
-			<Grid Width="590" HorizontalAlignment="Left" Background="{ DynamicResource Background800 }">
-				<TextBlock Text="Note Data" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-			</Grid>
-			<Grid Width="300" HorizontalAlignment="Right">
-				<Grid Height="295" VerticalAlignment="Top">
-					<local:CalendarControl></local:CalendarControl>
-				</Grid>
-				<Grid Height="295" VerticalAlignment="Bottom">
-					<local:NoteListControl></local:NoteListControl>
-				</Grid>
-			</Grid>
-		</Grid>
+		<local:NotePage />
 	</Grid>
 </Window>
 

@@ -1,0 +1,24 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:local="clr-namespace:NotABook"
+			 Width="927" Height="618"
+			 Background="{ DynamicResource Background900 }"
+             x:Class="NotABook.NotePage">
+	<Grid Width="900" Height="600" VerticalAlignment="Center">
+		<Grid Name="NoteGrid">
+			<Grid Width="590" HorizontalAlignment="Left" Background="{ DynamicResource Background800 }">
+				<TextBlock Text="Note Data" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+			</Grid>
+			<Grid Width="300" HorizontalAlignment="Right">
+				<Grid Height="295" VerticalAlignment="Top">
+					<local:CalendarControl />
+				</Grid>
+				<Grid Height="295" VerticalAlignment="Bottom">
+					<local:NoteListControl />
+				</Grid>
+			</Grid>
+		</Grid>
+	</Grid>
+</UserControl>

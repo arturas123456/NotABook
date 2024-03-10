@@ -19,12 +19,4 @@ public class NoteListItemControl : TemplatedControl
         get => GetValue(NoteDateProperty);
         set => SetValue(NoteDateProperty, value);
     }
-
-    public static StyledProperty<double> NoteWidthProperty = AvaloniaProperty.Register<NoteListItemControl, double>(nameof(NoteWidth), 100);
-    public double NoteWidth
-    {
-        get => GetValue(NoteWidthProperty);
-        set => SetValue(NoteWidthProperty, value);
-    }
-
 }
