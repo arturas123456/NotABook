@@ -9,7 +9,7 @@
         Title="NotABook" Background="{ DynamicResource Background900 }">
 	<Grid Width="900" Height="600">	
 		<!-- Grid shown on startup -->
-		<local:StartPage />
+		<!-- <local:StartPage /> -->
 
 		<!-- Grid shown on note selection -->
 		<local:NotePage />
