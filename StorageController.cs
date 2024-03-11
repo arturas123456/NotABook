@@ -109,7 +109,18 @@ namespace NotABook
                 notes.RemoveAt(index);
                 SaveNotes(notes);
             }
-            
+
+            /// <summary>
+            /// Find a note by its ID.
+            /// </summary>
+            /// <param name="ID"></param>
+            /// <returns>A note that matches the index</returns>
+            public static Notes Get(int index)
+            {
+                var notes = LoadNotes();
+                return notes.FirstOrDefault(n => n.Id == index);
+            }
+
 
             /// <summary>
             /// Loads notes from the JSON file.

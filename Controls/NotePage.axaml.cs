@@ -3,6 +3,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.Converters;
 using Avalonia.Markup.Xaml;
 using System;
+using static NotABook.StorageController;
 
 namespace NotABook;
 
@@ -10,12 +11,14 @@ public partial class NotePage : UserControl
 {
     private Button saveBtn;
     private Button delBtn;
+    private Button viewBtn;
     public NotePage()
     {
         InitializeComponent();
 
         saveBtn = this.FindControl<Button>("SaveButton");
         delBtn = this.FindControl<Button>("DeleteButton");
+        viewBtn = this.FindControl<Button>("ViewButton");
 
         // creates a new note when the "save" button is clicked
         saveBtn.Click += (sender, e) => {
@@ -27,6 +30,16 @@ public partial class NotePage : UserControl
         {
             deleteNote();
         };
+
+        viewBtn.Click += (sender, e) =>
+        {
+            viewNote();
+        };
+    }
+
+    private void ClosePopup_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        NotePopup.IsOpen = false;
     }
 
     /// <summary>
@@ -60,5 +73,29 @@ public partial class NotePage : UserControl
 
         // Deletes the selected note from the visible list.
         NoteListControl.RemoveNoteFromList(noteIndex);
+    }
+
+    /// <summary>
+    /// Views the selected note.
+    /// </summary>
+    public void viewNote()
+    {
+        //Getting the index of a selected note
+        int noteIndex = NoteListControl._SelectedNoteIndex + 1;
+
+        // Retrieve the data of the selected note
+        Notes noteData = StorageController.Notes.Get(noteIndex);
+
+        // Update the content of the popup with note information
+        if (noteData != null)
+        {
+            NotePopupText.Text = $"Title: {noteData.Name}\nDate: {noteData.Date.ToString("yyyy-MM-dd")}\nData: {noteData.Data}";
+            NotePopup.IsOpen = true;
+        }
+        else
+        {
+            NotePopupText.Text = "Note not found";
+            NotePopup.IsOpen = true;
+        }
     }
 }
