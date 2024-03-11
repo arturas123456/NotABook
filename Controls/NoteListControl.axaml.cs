@@ -2,6 +2,8 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System.Collections.Generic;
+using static NotABook.StorageController;
 
 namespace NotABook;
 
@@ -13,6 +15,7 @@ public partial class NoteListControl : UserControl
     {
         InitializeComponent();
         _NotePanel = this.FindControl<ListBox>("NotePanel");
+        UpdateNoteList();
     }
 
     public static void AddNoteToList(string title, string date)
@@ -44,6 +47,16 @@ public partial class NoteListControl : UserControl
     public void ClearNoteList()
     {
         _NotePanel.Items.Clear();
+    }
+
+    public void UpdateNoteList()
+    {
+        ClearNoteList();
+        List<Notes> notes = StorageController.Notes.LoadNotes();
+        foreach (var note in notes)
+        {
+            AddNoteToList(note.Name, note.Date.ToString("yyyy-MM-dd"));
+        }
     }
 
     private void InitializeComponent()

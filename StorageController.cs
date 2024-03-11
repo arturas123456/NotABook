@@ -144,13 +144,11 @@ namespace NotABook
             }
         }
 
-        public static List<Notes> AllNotes { get; } = LoadAllNotes();
-
         /// <summary>
         /// Loads all notes from the JSON file.
         /// </summary>
         /// <returns>List of notes.</returns>
-        private static List<Notes> LoadAllNotes()
+        public static List<Notes> LoadAllNotes()
         {
             return Notes.LoadNotes();
         }
