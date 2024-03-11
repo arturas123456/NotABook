@@ -68,6 +68,8 @@ public partial class NotePage : UserControl
         // Get ID of selected note.
         int noteIndex = NoteListControl._SelectedNoteIndex;
 
+        if (noteIndex == -1) return;
+
         // Deletes the selected note from the storage.
         StorageController.Notes.Delete(noteIndex);
 
