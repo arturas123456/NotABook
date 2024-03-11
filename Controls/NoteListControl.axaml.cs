@@ -13,11 +13,6 @@ public partial class NoteListControl : UserControl
     {
         InitializeComponent();
         _NotePanel = this.FindControl<ListBox>("NotePanel");
-
-        for (int i = 0; i < 10; i++)
-        {
-            AddNoteToList("Example Note Title", "Example Note Date");
-        }
     }
 
     public static void AddNoteToList(string title, string date)
