@@ -10,7 +10,7 @@ namespace NotABook;
 public partial class NoteListControl : UserControl
 {
     public static ListBox _NotePanel;
-    public static int _SelectedNoteID = -1;
+    public static int _SelectedNoteIndex = -1;
     public NoteListControl()
     {
         InitializeComponent();
@@ -27,13 +27,13 @@ public partial class NoteListControl : UserControl
         _NotePanel.Items.Add(noteListItem);
     }
 
-    public static void RemoveNoteFromList(int noteID)
+    public static void RemoveNoteFromList(int noteIndex)
     {
-        noteID = _SelectedNoteID;
+        noteIndex = _SelectedNoteIndex;
         
-        if (noteID >= 0 && noteID < _NotePanel.ItemCount)
+        if (noteIndex >= 0 && noteIndex < _NotePanel.ItemCount)
         {
-            _NotePanel.Items.RemoveAt(noteID);
+            _NotePanel.Items.RemoveAt(noteIndex);
         }
 
         else return;
@@ -41,7 +41,7 @@ public partial class NoteListControl : UserControl
 
     public void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        _SelectedNoteID = _NotePanel.SelectedIndex;
+        _SelectedNoteIndex = _NotePanel.SelectedIndex;
     }
 
     public void ClearNoteList()

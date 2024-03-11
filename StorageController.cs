@@ -103,10 +103,10 @@ namespace NotABook
             /// Deletes a note by its ID.
             /// </summary>
             /// <param name="ID">Note ID.</param>
-            public static void Delete(int ID)
+            public static void Delete(int index)
             {
                 var notes = LoadNotes();
-                notes.RemoveAll(n => n.Id == ID);
+                notes.RemoveAt(index);
                 SaveNotes(notes);
             }
             
