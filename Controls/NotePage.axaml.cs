@@ -65,11 +65,16 @@ public partial class NotePage : UserControl
     /// </summary>
     public void deleteNote()
     {
-        // Get ID of selected note.
+        // Get the index of selected note.
         int noteIndex = NoteListControl._SelectedNoteIndex;
 
-        if (noteIndex == -1) return;
-
+        if (noteIndex == -1)
+        {
+            NotePopupText.Text = "Please select a note to delete.";
+            NotePopup.IsOpen = true;
+            return;
+        }
+        
         // Deletes the selected note from the storage.
         StorageController.Notes.Delete(noteIndex);
 

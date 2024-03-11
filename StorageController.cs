@@ -100,9 +100,9 @@ namespace NotABook
             }
 
             /// <summary>
-            /// Deletes a note by its ID.
+            /// Deletes a note by its index.
             /// </summary>
-            /// <param name="ID">Note ID.</param>
+            /// <param name="index">Index of selected note.</param>
             public static void Delete(int index)
             {
                 var notes = LoadNotes();
@@ -111,9 +111,9 @@ namespace NotABook
             }
 
             /// <summary>
-            /// Find a note by its ID.
+            /// Find a note by its index.
             /// </summary>
-            /// <param name="ID"></param>
+            /// <param name="index"></param>
             /// <returns>A note that matches the index</returns>
             public static Notes Get(int index)
             {
