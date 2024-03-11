@@ -53,12 +53,12 @@ public partial class NotePage : UserControl
     public void deleteNote()
     {
         // Get ID of selected note.
-        int noteID = NoteListControl._SelectedNoteID;
+        int noteIndex = NoteListControl._SelectedNoteIndex;
 
         // Deletes the selected note from the storage.
-        StorageController.Notes.Delete(noteID);
+        StorageController.Notes.Delete(noteIndex);
 
         // Deletes the selected note from the visible list.
-        NoteListControl.RemoveNoteFromList(noteID);
+        NoteListControl.RemoveNoteFromList(noteIndex);
     }
 }
