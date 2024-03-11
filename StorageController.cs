@@ -8,8 +8,9 @@ namespace NotABook
 {
     internal class StorageController
     {
-        private const string SettingsFilePath = "./data/Settings.json";
-        private const string NotesFilePath = "./data/Notes.json";
+        private const string DataDirectory = "./data";
+        private const string SettingsFilePath = DataDirectory + "/Settings.json";
+        private const string NotesFilePath = DataDirectory + "/Notes.json";
 
         /// <summary>
         /// Represents a class for managing application settings.
@@ -116,7 +117,15 @@ namespace NotABook
             /// <returns>List of notes.</returns>
             internal static List<Notes> LoadNotes()
             {
-                if (File.Exists(NotesFilePath))
+                if (!Directory.Exists(DataDirectory))
+                {
+                    Directory.CreateDirectory(DataDirectory);
+                }
+
+                if (!File.Exists(NotesFilePath))
+                {
+                    File.Create(NotesFilePath).Close();
+                } else
                 {
                     var json = File.ReadAllText(NotesFilePath);
                     return JsonConvert.DeserializeObject<List<Notes>>(json) ?? new List<Notes>();
@@ -152,7 +161,15 @@ namespace NotABook
         /// <returns>Settings object.</returns>
         public static Settings LoadSettings()
         {
-            if (File.Exists(SettingsFilePath))
+            if (!Directory.Exists(DataDirectory))
+            {
+                Directory.CreateDirectory(DataDirectory);
+            }
+
+            if (!File.Exists(SettingsFilePath))
+            {
+                File.Create(SettingsFilePath).Close();
+            } else
             {
                 var json = File.ReadAllText(SettingsFilePath);
                 return JsonConvert.DeserializeObject<Settings>(json);
