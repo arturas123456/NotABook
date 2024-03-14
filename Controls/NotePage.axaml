@@ -4,16 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:NotABook"
              Width="927" Height="618"
-             Background="{DynamicResource Background900}"
+             Background="{DynamicResource LightBackground950}"
              x:Class="NotABook.NotePage">
 	<Grid Width="900" Height="600" VerticalAlignment="Center">
 		<Grid Name="NoteGrid">
-			<Grid Width="590" HorizontalAlignment="Left" Background="{DynamicResource Background800}">
-				<TextBox x:Name="NoteText" TextWrapping="Wrap" AcceptsReturn="True" Height="500" Margin="20 50" VerticalAlignment="Top"/>
-				<TextBox x:Name="NoteTitle" TextWrapping="Wrap" AcceptsReturn="True" Height="30" Margin="20 10" VerticalAlignment="Top"/>
-				<Button x:Name="SaveButton" Content="Save" Width="100" Height="30" Margin="20 10" VerticalAlignment="Bottom" HorizontalAlignment="Right" HorizontalContentAlignment="Center"/>
-				<Button x:Name="DeleteButton" Content="Delete" Width="100" Height="30" Margin="20 10" VerticalAlignment="Bottom" HorizontalAlignment="Center" HorizontalContentAlignment="Center"/>
-				<Button x:Name="ViewButton" Content="View" Width="100" Height="30" Margin="20 10" VerticalAlignment="Bottom" HorizontalAlignment="Left" HorizontalContentAlignment="Center"/>
+			<Grid Width="590" HorizontalAlignment="Left" Background="{DynamicResource LightBackground900}">
+				<TextBox x:Name="NoteText" Background="{DynamicResource LightBackground800}" TextWrapping="Wrap" AcceptsReturn="True" Height="500" Margin="20 50" VerticalAlignment="Top"/>
+				<TextBox x:Name="NoteTitle" Background="{DynamicResource LightBackground800}" TextWrapping="Wrap" AcceptsReturn="True" Height="30" Margin="20 10" VerticalAlignment="Top"/>
+				<Button x:Name="SaveButton" Background="{DynamicResource LightPrimary500}" Content="Save" Width="100" Height="30" Margin="20 10" VerticalAlignment="Bottom" HorizontalAlignment="Right" HorizontalContentAlignment="Center"/>
+				<Button x:Name="DeleteButton" Background="{DynamicResource LightPrimary500}" Content="Delete" Width="100" Height="30" Margin="20 10" VerticalAlignment="Bottom" HorizontalAlignment="Center" HorizontalContentAlignment="Center"/>
+				<Button x:Name="ViewButton" Background="{DynamicResource LightPrimary500}" Content="View" Width="100" Height="30" Margin="20 10" VerticalAlignment="Bottom" HorizontalAlignment="Left" HorizontalContentAlignment="Center"/>
 				<Popup x:Name="NotePopup" Placement="Center" PlacementTarget="{Binding ElementName=NoteText}" IsOpen="False">
 					<Border Background="BurlyWood" BorderBrush="Black" BorderThickness="1" CornerRadius="5" Padding="10">
 						<StackPanel>

@@ -5,7 +5,7 @@
              mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="400"
              x:Class="NotABook.CalendarControl">
 
-		<Grid Background="{ DynamicResource Background800 }">
+		<Grid Background="{ DynamicResource LightPrimary200 }">
 			<!-- 
 			<Calendar Name="Calendar" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 			-->

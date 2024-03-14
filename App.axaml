@@ -8,68 +8,130 @@
         <FluentTheme />
 		<StyleInclude Source="/Controls/NoteListItemControl.axaml" />
     </Application.Styles>
-
+	
 	<Application.Resources>
+		
 
-		<SolidColorBrush x:Key="Text50">#f6f0ee</SolidColorBrush>
-		<SolidColorBrush x:Key="Text100">#ede1de</SolidColorBrush>
-		<SolidColorBrush x:Key="Text200">#dcc3bc</SolidColorBrush>
-		<SolidColorBrush x:Key="Text300">#caa59b</SolidColorBrush>
-		<SolidColorBrush x:Key="Text400">#b98779</SolidColorBrush>
-		<SolidColorBrush x:Key="Text500">#a76958</SolidColorBrush>
-		<SolidColorBrush x:Key="Text600">#865446</SolidColorBrush>
-		<SolidColorBrush x:Key="Text700">#643f35</SolidColorBrush>
-		<SolidColorBrush x:Key="Text800">#432a23</SolidColorBrush>
-		<SolidColorBrush x:Key="Text900">#211512</SolidColorBrush>
-		<SolidColorBrush x:Key="Text950">#110b09</SolidColorBrush>
+		<SolidColorBrush x:Key="LightText50">#060C14</SolidColorBrush>
+		<SolidColorBrush x:Key="LightText100">#0C1827</SolidColorBrush>
+		<SolidColorBrush x:Key="LightText200">#172F4F</SolidColorBrush>
+		<SolidColorBrush x:Key="LightText300">#234776</SolidColorBrush>
+		<SolidColorBrush x:Key="LightText400">#2F5D9D</SolidColorBrush>
+		<SolidColorBrush x:Key="LightText500">#3B76C4</SolidColorBrush>
+		<SolidColorBrush x:Key="LightText600">#6294D0</SolidColorBrush>
+		<SolidColorBrush x:Key="LightText700">#89B2DC</SolidColorBrush>
+		<SolidColorBrush x:Key="LightText800">#B0D0E8</SolidColorBrush>
+		<SolidColorBrush x:Key="LightText900">#D8E4F3</SolidColorBrush>
+		<SolidColorBrush x:Key="LightText950">#EBF1F9</SolidColorBrush>
 		
-		<SolidColorBrush x:Key="Primary50">#faeeea</SolidColorBrush>
-		<SolidColorBrush x:Key="Primary100">#f6ded5</SolidColorBrush>
-		<SolidColorBrush x:Key="Primary200">#edbdab</SolidColorBrush>
-		<SolidColorBrush x:Key="Primary300">#e39c82</SolidColorBrush>
-		<SolidColorBrush x:Key="Primary400">#da7b58</SolidColorBrush>
-		<SolidColorBrush x:Key="Primary500">#d1592e</SolidColorBrush>
-		<SolidColorBrush x:Key="Primary600">#a74825</SolidColorBrush>
-		<SolidColorBrush x:Key="Primary700">#7d361c</SolidColorBrush>
-		<SolidColorBrush x:Key="Primary800">#542412</SolidColorBrush>
-		<SolidColorBrush x:Key="Primary900">#2a1209</SolidColorBrush>
-		<SolidColorBrush x:Key="Primary950">#150b05</SolidColorBrush>
+		<SolidColorBrush x:Key="LightBackground50">#050A14</SolidColorBrush>
+		<SolidColorBrush x:Key="LightBackground100">#0A1429</SolidColorBrush>
+		<SolidColorBrush x:Key="LightBackground200">#142952</SolidColorBrush>
+		<SolidColorBrush x:Key="LightBackground300">#1F3D7A</SolidColorBrush>
+		<SolidColorBrush x:Key="LightBackground400">#2952A3</SolidColorBrush>
+		<SolidColorBrush x:Key="LightBackground500">#3366CC</SolidColorBrush>
+		<SolidColorBrush x:Key="LightBackground600">#5C85D6</SolidColorBrush>
+		<SolidColorBrush x:Key="LightBackground700">#85A3E0</SolidColorBrush>
+		<SolidColorBrush x:Key="LightBackground800">#ADD2EA</SolidColorBrush>
+		<SolidColorBrush x:Key="LightBackground900">#D6EAF4</SolidColorBrush>
+		<SolidColorBrush x:Key="LightBackground950">#EBF0FA</SolidColorBrush>
 		
-		<SolidColorBrush x:Key="Secondary50">#fdede8</SolidColorBrush>
-		<SolidColorBrush x:Key="Secondary100">#fbdcd0</SolidColorBrush>
-		<SolidColorBrush x:Key="Secondary200">#f6b8a2</SolidColorBrush>
-		<SolidColorBrush x:Key="Secondary300">#f29573</SolidColorBrush>
-		<SolidColorBrush x:Key="Secondary400">#ee7144</SolidColorBrush>
-		<SolidColorBrush x:Key="Secondary500">#e94e16</SolidColorBrush>
-		<SolidColorBrush x:Key="Secondary600">#bb3e11</SolidColorBrush>
-		<SolidColorBrush x:Key="Secondary700">#8c2f0d</SolidColorBrush>
-		<SolidColorBrush x:Key="Secondary800">#5d1f09</SolidColorBrush>
-		<SolidColorBrush x:Key="Secondary900">#2f1004</SolidColorBrush>
-		<SolidColorBrush x:Key="Secondary950">#170802</SolidColorBrush>
+		<SolidColorBrush x:Key="LightPrimary50">#060C14</SolidColorBrush>
+		<SolidColorBrush x:Key="LightPrimary100">#0B1928</SolidColorBrush>
+		<SolidColorBrush x:Key="LightPrimary200">#163150</SolidColorBrush>
+		<SolidColorBrush x:Key="LightPrimary300">#224A77</SolidColorBrush>
+		<SolidColorBrush x:Key="LightPrimary400">#2D629F</SolidColorBrush>
+		<SolidColorBrush x:Key="LightPrimary500">#387BC7</SolidColorBrush>
+		<SolidColorBrush x:Key="LightPrimary600">#6199D3</SolidColorBrush>
+		<SolidColorBrush x:Key="LightPrimary700">#8AB7DF</SolidColorBrush>
+		<SolidColorBrush x:Key="LightPrimary800">#B2D5EB</SolidColorBrush>
+		<SolidColorBrush x:Key="LightPrimary900">#DAE9F5</SolidColorBrush>
+		<SolidColorBrush x:Key="LightPrimary950">#EBF2FA</SolidColorBrush>
+
+		<SolidColorBrush x:Key="LightSecondary50">#060614</SolidColorBrush>
+		<SolidColorBrush x:Key="LightSecondary100">#0B0C28</SolidColorBrush>
+		<SolidColorBrush x:Key="LightSecondary200">#171853</SolidColorBrush>
+		<SolidColorBrush x:Key="LightSecondary300">#253C7A</SolidColorBrush>
+		<SolidColorBrush x:Key="LightSecondary400">#2F4E9E</SolidColorBrush>
+		<SolidColorBrush x:Key="LightSecondary500">#3A60C2</SolidColorBrush>
+		<SolidColorBrush x:Key="LightSecondary600">#648FD0</SolidColorBrush>
+		<SolidColorBrush x:Key="LightSecondary700">#8EBEDF</SolidColorBrush>
+		<SolidColorBrush x:Key="LightSecondary800">#B8ECEF</SolidColorBrush>
+		<SolidColorBrush x:Key="LightSecondary900">#E2F7F4</SolidColorBrush>
+		<SolidColorBrush x:Key="LightSecondary950">#F2F9FA</SolidColorBrush>
+
+		<SolidColorBrush x:Key="LightAccent50">#080614</SolidColorBrush>
+		<SolidColorBrush x:Key="LightAccent100">#100C28</SolidColorBrush>
+		<SolidColorBrush x:Key="LightAccent200">#201A50</SolidColorBrush>
+		<SolidColorBrush x:Key="LightAccent300">#302C78</SolidColorBrush>
+		<SolidColorBrush x:Key="LightAccent400">#403E9E</SolidColorBrush>
+		<SolidColorBrush x:Key="LightAccent500">#504FC4</SolidColorBrush>
+		<SolidColorBrush x:Key="LightAccent600">#6F70D3</SolidColorBrush>
+		<SolidColorBrush x:Key="LightAccent700">#8F90E2</SolidColorBrush>
+		<SolidColorBrush x:Key="LightAccent800">#AFAFF1</SolidColorBrush>
+		<SolidColorBrush x:Key="LightAccent900">#D0D0F0</SolidColorBrush>
+		<SolidColorBrush x:Key="LightAccent950">#E9E9F9</SolidColorBrush>
 		
-		<SolidColorBrush x:Key="Accent50">#ffece6</SolidColorBrush>
-		<SolidColorBrush x:Key="Accent100">#ffdacc</SolidColorBrush>
-		<SolidColorBrush x:Key="Accent200">#feb49a</SolidColorBrush>
-		<SolidColorBrush x:Key="Accent300">#fe8f67</SolidColorBrush>
-		<SolidColorBrush x:Key="Accent400">#fe6a34</SolidColorBrush>
-		<SolidColorBrush x:Key="Accent500">#fe4501</SolidColorBrush>
-		<SolidColorBrush x:Key="Accent600">#cb3701</SolidColorBrush>
-		<SolidColorBrush x:Key="Accent700">#982901</SolidColorBrush>
-		<SolidColorBrush x:Key="Accent800">#651b01</SolidColorBrush>
-		<SolidColorBrush x:Key="Accent900">#330e00</SolidColorBrush>
-		<SolidColorBrush x:Key="Accent950">#190700</SolidColorBrush>
 		
-		<SolidColorBrush x:Key="Background50">#f9f0ec</SolidColorBrush>
-		<SolidColorBrush x:Key="Background100">#f2e1d9</SolidColorBrush>
-		<SolidColorBrush x:Key="Background200">#e6c3b3</SolidColorBrush>
-		<SolidColorBrush x:Key="Background300">#d9a48c</SolidColorBrush>
-		<SolidColorBrush x:Key="Background400">#cc8666</SolidColorBrush>
-		<SolidColorBrush x:Key="Background500">#bf6840</SolidColorBrush>
-		<SolidColorBrush x:Key="Background600">#995333</SolidColorBrush>
-		<SolidColorBrush x:Key="Background700">#733e26</SolidColorBrush>
-		<SolidColorBrush x:Key="Background800">#4d2a19</SolidColorBrush>
-		<SolidColorBrush x:Key="Background900">#26150d</SolidColorBrush>
-		<SolidColorBrush x:Key="Background950">#130a06</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkText50">#EBF1F9</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkText100">#D8E4F3</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkText200">#B0D0E8</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkText300">#89B2DC</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkText400">#6294D0</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkText500">#3B76C4</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkText600">#2F5D9D</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkText700">#234776</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkText800">#172F4F</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkText900">#0C1827</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkText950">#060C14</SolidColorBrush>
+
+		<SolidColorBrush x:Key="DarkBackground50">#EBF0FA</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkBackground100">#D6EAF4</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkBackground200">#ADD2EA</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkBackground300">#85A3E0</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkBackground400">#5C85D6</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkBackground500">#3366CC</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkBackground600">#2952A3</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkBackground700">#1F3D7A</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkBackground800">#142952</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkBackground900">#0A1429</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkBackground950">#050A14</SolidColorBrush>
+		
+		<SolidColorBrush x:Key="DarkPrimary50">#EBF2FA</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkPrimary100">#DAE9F5</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkPrimary200">#B2D5EB</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkPrimary300">#8AB7DF</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkPrimary400">#6199D3</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkPrimary500">#387BC7</SolidColorBrush>	
+		<SolidColorBrush x:Key="DarkPrimary600">#2D629F</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkPrimary700">#224A77</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkPrimary800">#163150</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkPrimary900">#0B1928</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkPrimary950">#060C14</SolidColorBrush>
+	
+		<SolidColorBrush x:Key="DarkSecondary50">#EBF9F4</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkSecondary100">#DAF2E9</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkSecondary200">#B2E5D2</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkSecondary300">#8AD8BB</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkSecondary400">#62CB9F</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkSecondary500">#3ACF88</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkSecondary600">#2DBF6F</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkSecondary700">#229F5A</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkSecondary800">#167F45</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkSecondary900">#0B5F30</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkSecondary950">#052F18</SolidColorBrush>
+
+		<SolidColorBrush x:Key="DarkAccent50">#EBF4F9</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkAccent100">#DAE9F2</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkAccent200">#B2D2E5</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkAccent300">#8ABBC8</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkAccent400">#6294AB</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkAccent500">#387D8E</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkAccent600">#2D6675</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkAccent700">#224E5C</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkAccent800">#163743</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkAccent900">#0B1F2A</SolidColorBrush>
+		<SolidColorBrush x:Key="DarkAccent950">#051015</SolidColorBrush>
 		
 	</Application.Resources>
 </Application>
