@@ -20,7 +20,7 @@ public partial class NoteViewControl : UserControl
         InitializeComponent();
 
         noteTitle = this.FindControl<TextBox>("NoteTitle");
-        noteContent = this.FindControl<TextBox>("NoteContent");
+        noteContent = this.FindControl<TextBox>("NoteText");
 
         saveButton = this.FindControl<Button>("SaveButton");
         viewButton = this.FindControl<Button>("ViewButton");

@@ -20,6 +20,6 @@
 			</ListBox.Styles>
 		</ListBox>
 		
-		<Button	Grid.Row="1" x:Name="DeleteButton" Background="{DynamicResource LightPrimary600}" Content="Delete" Width="100" Margin="20 10" VerticalAlignment="Bottom" HorizontalAlignment="Center" HorizontalContentAlignment="Center"/>
+		<Button	Grid.Row="1" x:Name="DeleteButton" Background="{DynamicResource LightPrimary600}" Content="Delete" Width="100" Margin="20 10" VerticalAlignment="Bottom" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"/>
 	</Grid>
 </UserControl>
