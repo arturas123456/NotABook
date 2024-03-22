@@ -10,7 +10,7 @@
 		<!-- Set Defaults -->
 		<Setter Property="Template">
 			<ControlTemplate>
-				<ListBoxItem Background="{ DynamicResource Background600 }" Padding="10">
+				<ListBoxItem Background="{ DynamicResource Background900 }" Padding="10">
 					<StackPanel Orientation="Horizontal">
 						<Label Content="{ TemplateBinding NoteTitle }" HorizontalAlignment="Left" />
 						<Label Content="{ TemplateBinding NoteDate }" HorizontalAlignment="Right" />

@@ -6,7 +6,7 @@
 			 xmlns:controls="using:NotABook"
              mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="300"
              x:Class="NotABook.NoteListControl">
-		<ListBox Background="{ DynamicResource LightBackground800 }" Name="NotePanel" SelectionMode="Single,Toggle" SelectionChanged="ListBox_SelectionChanged">
+		<ListBox Background="{ DynamicResource LightBackground900 }" Name="NotePanel" SelectionMode="Single,Toggle" SelectionChanged="ListBox_SelectionChanged">
 			<ListBox.Styles>
 				<Style Selector="ListBoxItem:selected /template/ ContentPresenter">
 					<Setter Property="Background" Value="Khaki"/>
