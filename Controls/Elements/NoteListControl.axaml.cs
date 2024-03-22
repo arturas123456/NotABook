@@ -10,12 +10,27 @@ namespace NotABook;
 public partial class NoteListControl : UserControl
 {
     public static ListBox _NotePanel;
-    public static int _SelectedNoteIndex = -1;
+    public static List<int> selectionList = new List<int>();
+    public static int lastSelectionIndex = -1;
     public NoteListControl()
     {
         InitializeComponent();
         _NotePanel = this.FindControl<ListBox>("NotePanel");
         UpdateNoteList();
+
+        _NotePanel.DoubleTapped += (sender, e) =>
+        {
+            viewNote();
+        };
+
+        _NotePanel.SelectionChanged += (sender, e) =>
+        {
+            updateSelection(sender, e);
+        };
+    }
+
+    public static void viewNote()
+    {
     }
 
     public static void AddNoteToList(string title, string date)
@@ -29,7 +44,7 @@ public partial class NoteListControl : UserControl
 
     public static void RemoveNoteFromList(int noteIndex)
     {
-        noteIndex = _SelectedNoteIndex;
+        noteIndex = lastSelectionIndex;
         
         if (noteIndex >= 0 && noteIndex < _NotePanel.ItemCount)
         {
@@ -39,9 +54,19 @@ public partial class NoteListControl : UserControl
         else return;
     }
 
-    public void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    public void updateSelection(object sender, SelectionChangedEventArgs e)
     {
-        _SelectedNoteIndex = _NotePanel.SelectedIndex;
+        lastSelectionIndex = _NotePanel.SelectedIndex;
+        if (SidebarControl.isMultiple.IsChecked == true)
+        {
+            if (selectionList.IndexOf(lastSelectionIndex) == -1) selectionList.Add(lastSelectionIndex);
+            else selectionList.Remove(lastSelectionIndex);
+        } else
+        {
+            if (_NotePanel.SelectedItems.Count > 1) _NotePanel.UnselectAll();
+            if (selectionList.IndexOf(lastSelectionIndex) == -1) selectionList.Add(lastSelectionIndex);
+            else selectionList.Remove(lastSelectionIndex);
+        }
     }
 
     public void ClearNoteList()

@@ -53,7 +53,7 @@ public partial class NotePage : UserControl
     public void deleteNote()
     {
         // Get the index of selected note.
-        int noteIndex = NoteListControl._SelectedNoteIndex;
+        int noteIndex = NoteListControl.lastSelectionIndex;
 
         if (noteIndex == -1)
         {
@@ -75,7 +75,7 @@ public partial class NotePage : UserControl
     public void viewNote()
     {
         //Getting the index of a selected note
-        int noteIndex = NoteListControl._SelectedNoteIndex + 1;
+        int noteIndex = NoteListControl.lastSelectionIndex + 1;
 
         // Retrieve the data of the selected note
         Notes noteData = StorageController.Notes.Get(noteIndex);
