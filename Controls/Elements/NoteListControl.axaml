@@ -4,13 +4,23 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:local="clr-namespace:NotABook"
 			 xmlns:controls="using:NotABook"
-             mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="300"
+             mc:Ignorable="d" d:DesignWidth="960" d:DesignHeight="540"
              x:Class="NotABook.NoteListControl">
-		<ListBox Background="{ DynamicResource LightBackground900 }" Name="NotePanel" SelectionMode="Single,Toggle" SelectionChanged="ListBox_SelectionChanged">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="50"/>
+		</Grid.RowDefinitions>
+		
+		<ListBox Grid.Row="0" Background="{ DynamicResource LightBackground900 }" Name="NotePanel" SelectionMode="Single,Toggle" SelectionChanged="ListBox_SelectionChanged">
 			<ListBox.Styles>
 				<Style Selector="ListBoxItem:selected /template/ ContentPresenter">
 					<Setter Property="Background" Value="Khaki"/>
 				</Style>
 			</ListBox.Styles>
-	</ListBox>
+		</ListBox>
+		
+		
+		<Button	Grid.Row="1" x:Name="DeleteButton" Background="{DynamicResource LightPrimary600}" Content="Delete" Width="100" Margin="20 10" VerticalAlignment="Bottom" HorizontalAlignment="Center" HorizontalContentAlignment="Center"/>
+	</Grid>
 </UserControl>

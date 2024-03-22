@@ -2,12 +2,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        Width="927" Height="618"
+        mc:Ignorable="d" d:DesignWidth="960" d:DesignHeight="540"
         x:Class="NotABook.MainWindow"
 		xmlns:local="clr-namespace:NotABook"
 		xmlns:control="using:NotABook"
+		MinHeight="405" MinWidth="720"
         Title="NotABook" Background="{ DynamicResource Background900 }">
-	<Grid Width="900" Height="600">	
+	<Grid>	
 		<!-- Grid shown on startup -->
 		<!-- <local:StartPage /> -->
 

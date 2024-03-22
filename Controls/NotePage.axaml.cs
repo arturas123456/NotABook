@@ -1,6 +1,7 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Converters;
+using Avalonia.Controls.Primitives;
 using Avalonia.Markup.Xaml;
 using System;
 using static NotABook.StorageController;
@@ -9,29 +10,15 @@ namespace NotABook;
 
 public partial class NotePage : UserControl
 {
-    private Button saveBtn;
-    private Button delBtn;
-    private Button viewBtn;
     public NotePage()
     {
         InitializeComponent();
 
-        saveBtn = this.FindControl<Button>("SaveButton");
-        delBtn = this.FindControl<Button>("DeleteButton");
-        viewBtn = this.FindControl<Button>("ViewButton");
-
-        // creates a new note when the "save" button is clicked
-        saveBtn.Click += (sender, e) => {
+        NoteViewControl.saveButton.Click += (sender, e) => {
             createNote();
         };
-
-        // deletes the current note when the "delete" button is clicked
-        delBtn.Click += (sender, e) =>
-        {
-            deleteNote();
-        };
-
-        viewBtn.Click += (sender, e) =>
+        
+        NoteViewControl.viewButton.Click += (sender, e) =>
         {
             viewNote();
         };
@@ -39,7 +26,7 @@ public partial class NotePage : UserControl
 
     private void ClosePopup_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
-        NotePopup.IsOpen = false;
+        NoteViewControl.notePopup.IsOpen = false;
     }
 
     /// <summary>
@@ -47,8 +34,8 @@ public partial class NotePage : UserControl
     /// </summary>
     public void createNote()
     {
-        string noteTitle = NoteTitle.Text;
-        string noteData = NoteText.Text;
+        string noteTitle = NoteViewControl.noteTitle.Text;
+        string noteData = NoteViewControl.noteContent.Text;
         DateTime noteDate = DateTime.Now; //change to selected date instead of 'Now' once calendar is implemented
 
         //saves the note to the storage
@@ -70,8 +57,8 @@ public partial class NotePage : UserControl
 
         if (noteIndex == -1)
         {
-            NotePopupText.Text = "Please select a note to delete.";
-            NotePopup.IsOpen = true;
+            NoteViewControl.notePopup.FindControl<TextBlock>("NotePopupText").Text = "Please select a note to delete.";
+            NoteViewControl.notePopup.IsOpen = true;
             return;
         }
         
@@ -96,13 +83,13 @@ public partial class NotePage : UserControl
         // Update the content of the popup with note information
         if (noteData != null)
         {
-            NotePopupText.Text = $"Title: {noteData.Name}\nDate: {noteData.Date.ToString("yyyy-MM-dd")}\nData: {noteData.Data}";
-            NotePopup.IsOpen = true;
+            NoteViewControl.notePopup.FindControl<TextBlock>("NotePopupText").Text = $"Title: {noteData.Name}\nDate: {noteData.Date.ToString("yyyy-MM-dd")}\nData: {noteData.Data}";
+            NoteViewControl.notePopup.IsOpen = true;
         }
         else
         {
-            NotePopupText.Text = "Note not found";
-            NotePopup.IsOpen = true;
+            NoteViewControl.notePopup.FindControl<TextBlock>("NotePopupText").Text = "Note not found";
+            NoteViewControl.notePopup.IsOpen = true;
         }
     }
 }
