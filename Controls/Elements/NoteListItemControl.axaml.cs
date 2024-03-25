@@ -5,6 +5,12 @@ namespace NotABook;
 
 public class NoteListItemControl : TemplatedControl
 {
+    public static StyledProperty<string> NoteIDProperty = AvaloniaProperty.Register<NoteListItemControl, string>(nameof(NoteID), "-1");
+    public string NoteID
+    {
+        get => GetValue(NoteIDProperty);
+        set => SetValue(NoteIDProperty, value);
+    }
 
     public static StyledProperty<string> NoteTitleProperty = AvaloniaProperty.Register<NoteListItemControl, string>(nameof(NoteTitle), "Example Note Title");
     public string NoteTitle

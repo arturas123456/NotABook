@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using Newtonsoft.Json;
 
 namespace NotABook
@@ -13,6 +11,7 @@ namespace NotABook
         private const string DataDirectory = "./data";
         private const string SettingsFilePath = DataDirectory + "/Settings.json";
         private const string NotesFilePath = DataDirectory + "/Notes.json";
+        private const string BackupPath = DataDirectory + "/Backup";
 
         /// <summary>
         /// Represents a class for managing application settings.
@@ -154,6 +153,29 @@ namespace NotABook
             {
                 var json = JsonConvert.SerializeObject(notes);
                 File.WriteAllText(NotesFilePath, json);
+            }
+
+            /// <summary>
+            /// Creates backup files in a separate directory.
+            /// </summary>
+            public static void Backup()
+            {
+                var notes = LoadNotes();
+                if (!Directory.Exists(BackupPath))
+                {
+                    Directory.CreateDirectory(BackupPath);
+                }
+
+                string[] fileList = Directory.GetFiles(BackupPath);
+                if (fileList.Length >= 10)
+                {
+                    var oldest = fileList.OrderBy(f => new FileInfo(f).CreationTime).First();
+                    File.Delete(oldest);
+                }
+                
+                var filePath = BackupPath + $"/Notes_{DateTime.Now:yyyy-MM-dd_HH-mm-ss}.json";
+                var json = JsonConvert.SerializeObject(notes);
+                File.WriteAllText(filePath, json);
             }
         }
 
