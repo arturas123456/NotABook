@@ -13,7 +13,12 @@ public partial class NoteViewControl : UserControl
     public static Button saveButton;
     public static Button viewButton;
 
+    public static Button yesButton;
+    public static Button noButton;
+
     public static Popup notePopup;
+    public static Popup confirmationPopUp;
+
 
     public NoteViewControl()
     {
@@ -25,6 +30,11 @@ public partial class NoteViewControl : UserControl
         saveButton = this.FindControl<Button>("SaveButton");
         viewButton = this.FindControl<Button>("ViewButton");
 
+        yesButton = this.FindControl<Button>("YesButton");
+        noButton = this.FindControl<Button>("NoButton");
+
         notePopup = this.FindControl<Popup>("NotePopup");
+        confirmationPopUp = this.FindControl<Popup>("ConfirmationPopup");
+
     }
 }

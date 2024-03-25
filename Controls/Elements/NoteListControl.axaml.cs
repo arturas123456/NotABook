@@ -12,9 +12,11 @@ public partial class NoteListControl : UserControl
     public static ListBox _NotePanel;
     public static List<int> selectionList = new List<int>();
     public static int lastSelectionIndex = -1;
+    public static Button deleteButton;
     public NoteListControl()
     {
         InitializeComponent();
+        deleteButton = this.FindControl<Button>("DeleteButton");
         _NotePanel = this.FindControl<ListBox>("NotePanel");
         UpdateNoteList();
 
@@ -45,7 +47,7 @@ public partial class NoteListControl : UserControl
     public static void RemoveNoteFromList(int noteIndex)
     {
         noteIndex = lastSelectionIndex;
-        
+
         if (noteIndex >= 0 && noteIndex < _NotePanel.ItemCount)
         {
             _NotePanel.Items.RemoveAt(noteIndex);
@@ -61,7 +63,8 @@ public partial class NoteListControl : UserControl
         {
             if (selectionList.IndexOf(lastSelectionIndex) == -1) selectionList.Add(lastSelectionIndex);
             else selectionList.Remove(lastSelectionIndex);
-        } else
+        }
+        else
         {
             if (_NotePanel.SelectedItems.Count > 1) _NotePanel.UnselectAll();
             if (selectionList.IndexOf(lastSelectionIndex) == -1) selectionList.Add(lastSelectionIndex);
