@@ -6,11 +6,10 @@
              x:Class="NotABook.CalendarControl">
 
 		<Grid Background="{ DynamicResource LightPrimary500 }">
-			<!-- 
-			<Calendar Name="Calendar" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-			-->
+			 
 			
-			<TextBlock Text="Calendar" Foreground="White" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+			<TextBlock Text="Current date:" Foreground="White" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, -40, 0, 0"/>
+			<TextBlock Text="ERR: cannot get date" Name="CalendarDate" Foreground="White" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 30, 0, 0"/>
 			
 		</Grid>
 	
