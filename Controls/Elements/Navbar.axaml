@@ -1,0 +1,19 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:NotABook"
+			 xmlns:controls="using:NotABook"
+             mc:Ignorable="d" d:DesignWidth="960" d:DesignHeight="25"
+             x:Class="NotABook.Navbar">
+	<StackPanel Orientation="Horizontal">
+		<Button x:Name="nav_File" Content="File" Padding="8 3" Margin="0 0 10 0" Width="100" HorizontalContentAlignment="Center" Click="nav_File_Click"/>
+	</StackPanel>
+
+	<UserControl.ContextMenu>
+		<ContextMenu>
+			<MenuItem Header="Clear Data" Click="ClearData_Click"/>
+			<MenuItem Header="Export" Click="Export_Click"/>
+		</ContextMenu>
+	</UserControl.ContextMenu>
+</UserControl>
