@@ -263,5 +263,24 @@ namespace NotABook
         {
             File.Copy(NotesFilePath, result, true);
         }
+
+        internal static void ImportData(string[] result)
+        {
+            File.Copy(result[0], NotesFilePath, true);
+        }
+
+        internal static bool CheckFile(string[] result)
+        {
+            try
+            {
+                var json = File.ReadAllText(result[0]);
+                JsonConvert.DeserializeObject<List<Note>>(json);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }
