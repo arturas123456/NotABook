@@ -10,7 +10,7 @@ public partial class NoteViewControl : UserControl
 {
     public static TextBox noteTitle;
     public static TextBox noteContent;
-    public static TextBox noteID;
+    public static Label noteID;
 
     public static Button saveButton;
     public static Button viewButton;
@@ -28,7 +28,7 @@ public partial class NoteViewControl : UserControl
 
         noteTitle = this.FindControl<TextBox>("NoteTitle");
         noteContent = this.FindControl<TextBox>("NoteText");
-        noteID = this.FindControl<TextBox>("NoteID");
+        noteID = this.FindControl<Label>("NoteID");
 
         saveButton = this.FindControl<Button>("SaveButton");
         viewButton = this.FindControl<Button>("ViewButton");
@@ -46,6 +46,6 @@ public partial class NoteViewControl : UserControl
         Note note = Note.Get(NoteID);
         noteTitle.Text = note.Name;
         noteContent.Text = note.Data;
-        noteID.Text = NoteID.ToString();
+        noteID.Content = NoteID.ToString();
     }
 }

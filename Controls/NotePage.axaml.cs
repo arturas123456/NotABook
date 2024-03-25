@@ -38,14 +38,21 @@ public partial class NotePage : UserControl
         string noteTitle = NoteViewControl.noteTitle.Text;
         string noteData = NoteViewControl.noteContent.Text;
         DateTime noteDate = DateTime.Now; //change to selected date instead of 'Now' once calendar is implemented
-        int noteID = NoteListControl.FindHighestID() + 1;
+        int noteID = int.Parse(NoteViewControl.noteID.Content.ToString());
+        if (noteID <= 0) noteID = NoteListControl.FindHighestID() + 1;
 
         //saves the note to the storage
         //if the app crashes, feel free to comment out for the time being
         StorageController.Note.Create(noteTitle, noteData, noteID, noteDate);
 
         //adds it to the viewable list
-        NoteListControl.AddNoteToList(noteTitle, noteDate.ToString("yyyy-MM-dd"), noteID);
+        NoteListControl.UpdateNoteList();
+        // NoteListControl.AddNoteToList(noteTitle, noteDate.ToString("yyyy-MM-dd"), noteID);
+
+        // Clear the textboxes
+        NoteViewControl.noteTitle.Text = "";
+        NoteViewControl.noteContent.Text = "";
+        NoteViewControl.noteID.Content = "0";
     }
 
 

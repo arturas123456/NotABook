@@ -81,12 +81,12 @@ public partial class NoteListControl : UserControl
         }
     }
 
-    public void ClearNoteList()
+    public static void ClearNoteList()
     {
         _NotePanel.Children.Clear();
     }
 
-    public void UpdateNoteList()
+    public static void UpdateNoteList()
     {
         ClearNoteList();
         List<Note> notes = StorageController.Note.LoadNotes();

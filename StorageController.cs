@@ -88,17 +88,32 @@ namespace NotABook
             public static void Create(string name, string data, int id, DateTime? date = null)
             {
                 var notes = LoadNotes();
-                var newNote = new Note
+                var existingNote = notes.Find(n => n.Id == id);
+
+                if (existingNote != null)
                 {
-                    Name = name,
-                    Data = data,
-                    Date = date ?? DateTime.Now,
-                    Id = id
-                };
-                notes.Add(newNote);
+                    // Replace existing note
+                    existingNote.Name = name;
+                    existingNote.Data = data;
+                    existingNote.Date = date ?? DateTime.Now;
+                }
+                else
+                {
+                    // Add new note
+                    var newNote = new Note
+                    {
+                        Name = name,
+                        Data = data,
+                        Date = date ?? DateTime.Now,
+                        Id = id
+                    };
+                    notes.Add(newNote);
+                }
+
                 notes = notes.OrderBy(n => n.Date).ToList();
                 SaveNotes(notes);
             }
+
 
             /// <summary>
             /// Deletes a note by its index.
@@ -119,7 +134,7 @@ namespace NotABook
             public static Note Get(int id)
             {
                 var notes = LoadNotes();
-                return notes.FirstOrDefault(n => n.Id == id);
+                return notes.Find(n => n.Id == id);
             }
 
 
