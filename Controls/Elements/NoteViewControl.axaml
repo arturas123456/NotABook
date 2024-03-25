@@ -18,7 +18,6 @@
 
 		<Grid Grid.Row="2">
 			<Button x:Name="SaveButton" Background="{DynamicResource LightPrimary600}" Content="Save" Width="100" Margin="20 10" HorizontalAlignment="Right" HorizontalContentAlignment="Center"/>
-			<Button x:Name="ViewButton" Background="{DynamicResource LightPrimary600}" Content="View" Width="100" Margin="20 10" HorizontalAlignment="Left" HorizontalContentAlignment="Center"/>
 		</Grid>
 		
 		<Popup Grid.Row="3" x:Name="NotePopup" Placement="Center" PlacementTarget="{Binding ElementName=NoteText}" IsOpen="False">
