@@ -258,5 +258,10 @@ namespace NotABook
             }
             return true;
         }
+
+        internal static void ExportData(string result)
+        {
+            File.Copy(NotesFilePath, result, true);
+        }
     }
 }
