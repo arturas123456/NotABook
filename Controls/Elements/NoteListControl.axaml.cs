@@ -1,8 +1,9 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System;
 using System.Collections.Generic;
+using System.Threading;
 using static NotABook.StorageController;
 
 namespace NotABook;
@@ -13,12 +14,15 @@ public partial class NoteListControl : UserControl
     public static List<int> selectionList = new List<int>();
     public static int lastSelectionIndex = -1;
     public static Button deleteButton;
+    private static Timer backupTimer;
     public NoteListControl()
     {
         InitializeComponent();
         deleteButton = this.FindControl<Button>("DeleteButton");
         _NotePanel = this.FindControl<ListBox>("NotePanel");
         UpdateNoteList();
+
+        backupTimer = new Timer(OnTimerCallback, null, TimeSpan.Zero, TimeSpan.FromMinutes(10));
 
         _NotePanel.DoubleTapped += (sender, e) =>
         {
@@ -33,6 +37,11 @@ public partial class NoteListControl : UserControl
 
     public static void viewNote()
     {
+    }
+
+    private static void OnTimerCallback(object? state)
+    {
+        StorageController.Notes.Backup();
     }
 
     public static void AddNoteToList(string title, string date)
