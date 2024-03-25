@@ -119,10 +119,10 @@ namespace NotABook
             /// Deletes a note by its index.
             /// </summary>
             /// <param name="index">Index of selected note.</param>
-            public static void Delete(int index)
+            public static void Delete(int id)
             {
                 var notes = LoadNotes();
-                notes.RemoveAt(index);
+                notes.Where(n => n.Id == id).ToList().ForEach(n => notes.Remove(n));
                 SaveNotes(notes);
             }
 

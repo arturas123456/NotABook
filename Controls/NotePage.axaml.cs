@@ -21,7 +21,7 @@ public partial class NotePage : UserControl
 
         NoteListControl.deleteButton.Click += (sender, e) =>
         {
-            deleteNote();
+            deleteNotes();
         };
     }
 
@@ -59,17 +59,19 @@ public partial class NotePage : UserControl
     /// <summary>
     /// Deletes the selected note.
     /// </summary>
-    public void deleteNote()
+    public void deleteNotes()
     {
         // Get the index of selected note.
         int noteIndex = NoteListControl.lastSelectionIndex;
 
+        /*
         if (noteIndex == -1)
         {
             NoteViewControl.confirmationPopUp.FindControl<TextBlock>("NotePopupText").Text = "Please select a note to delete.";
             NoteViewControl.notePopup.IsOpen = true;
             return;
         }
+        */
 
         // Update the content of the popup with confirmation message
         NoteViewControl.confirmationPopUp.FindControl<TextBlock>("NotePopupText").Text = "Are you sure you want to delete this note?";
@@ -82,13 +84,14 @@ public partial class NotePage : UserControl
         // Add event handlers for buttons
         yesButton.Click += (sender, e) =>
         {
-            // Deletes the selected note from the storage.
-            StorageController.Note.Delete(noteIndex);
+            foreach (int id in NoteListControl.selectedNotes)
+            {
+                // Deletes the selected note from the storage.
+                StorageController.Note.Delete(id);
+            }
 
-            // Deletes the selected note from the visible list.
-            NoteListControl.RemoveNoteFromList(noteIndex);
+            NoteListControl.UpdateNoteList();
 
-            // Close the popup
             NoteViewControl.confirmationPopUp.IsOpen = false;
         };
 

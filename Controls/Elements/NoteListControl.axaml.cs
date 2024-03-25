@@ -14,7 +14,6 @@ public partial class NoteListControl : UserControl
     public static List<int> selectedNotes = new List<int>();
 
     public static StackPanel _NotePanel;
-    public static List<int> selectionList = new List<int>();
     public static int lastSelectionIndex = -1;
     public static Button deleteButton;
     private static Timer backupTimer;
