@@ -72,7 +72,7 @@ namespace NotABook
         /// <summary>
         /// Represents a class for managing notes.
         /// </summary>
-        public class Notes
+        public class Note
         {
             public string Name { get; set; }
             public string Data { get; set; }
@@ -88,7 +88,7 @@ namespace NotABook
             public static void Create(string name, string data, int id, DateTime? date = null)
             {
                 var notes = LoadNotes();
-                var newNote = new Notes
+                var newNote = new Note
                 {
                     Name = name,
                     Data = data,
@@ -112,14 +112,14 @@ namespace NotABook
             }
 
             /// <summary>
-            /// Find a note by its index.
+            /// Find a note by its id.
             /// </summary>
-            /// <param name="index"></param>
-            /// <returns>A note that matches the index</returns>
-            public static Notes Get(int index)
+            /// <param name="id"></param>
+            /// <returns>A note that matches the id</returns>
+            public static Note Get(int id)
             {
                 var notes = LoadNotes();
-                return notes.FirstOrDefault(n => n.Id == index);
+                return notes.FirstOrDefault(n => n.Id == id);
             }
 
 
@@ -127,7 +127,7 @@ namespace NotABook
             /// Loads notes from the JSON file.
             /// </summary>
             /// <returns>List of notes.</returns>
-            internal static List<Notes> LoadNotes()
+            internal static List<Note> LoadNotes()
             {
                 if (!Directory.Exists(DataDirectory))
                 {
@@ -140,16 +140,16 @@ namespace NotABook
                 } else
                 {
                     var json = File.ReadAllText(NotesFilePath);
-                    return JsonConvert.DeserializeObject<List<Notes>>(json) ?? new List<Notes>();
+                    return JsonConvert.DeserializeObject<List<Note>>(json) ?? new List<Note>();
                 }
-                return new List<Notes>();
+                return new List<Note>();
             }
 
             /// <summary>
             /// Saves notes to the JSON file.
             /// </summary>
             /// <param name="notes">List of notes to save.</param>
-            private static void SaveNotes(List<Notes> notes)
+            private static void SaveNotes(List<Note> notes)
             {
                 var json = JsonConvert.SerializeObject(notes);
                 File.WriteAllText(NotesFilePath, json);
@@ -183,9 +183,9 @@ namespace NotABook
         /// Loads all notes from the JSON file.
         /// </summary>
         /// <returns>List of notes.</returns>
-        public static List<Notes> LoadAllNotes()
+        public static List<Note> LoadAllNotes()
         {
-            return Notes.LoadNotes();
+            return Note.LoadNotes();
         }
 
         /// <summary>

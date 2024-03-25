@@ -12,13 +12,7 @@
 			<RowDefinition Height="50"/>
 		</Grid.RowDefinitions>
 		
-		<ListBox Grid.Row="0" Background="{ DynamicResource LightBackground900 }" Name="NotePanel" SelectionMode="Multiple,Toggle">
-			<ListBox.Styles>
-				<Style Selector="ListBoxItem:selected /template/ ContentPresenter">
-					<Setter Property="Background" Value="Khaki"/>
-				</Style>
-			</ListBox.Styles>
-		</ListBox>
+		<StackPanel Orientation="Vertical" Grid.Row="0" Background="{ DynamicResource LightBackground900 }" Name="NotePanel" />
 		
 		<Button	Grid.Row="1" x:Name="DeleteButton" Background="{DynamicResource LightPrimary600}" Content="Delete" Width="100" Margin="20 10" VerticalAlignment="Bottom" HorizontalAlignment="Center" HorizontalContentAlignment="Center"/>
 	</Grid>

@@ -11,8 +11,9 @@
 			<RowDefinition Height="50"/>
 			<RowDefinition Height="Auto"/>
 		</Grid.RowDefinitions>
-		
+
 		<TextBox Grid.Row="0" x:Name="NoteTitle" Background="{DynamicResource LightBackground900}" TextWrapping="Wrap" AcceptsReturn="True" Margin="20 10"/>
+		<TextBox Grid.Row="0" Opacity="0" Width="0" x:Name="NoteID"/>
 		<TextBox Grid.Row="1" x:Name="NoteText" Background="{DynamicResource LightBackground900}" TextWrapping="Wrap" AcceptsReturn="True" Margin="20 10"/>
 
 		<Grid Grid.Row="2">

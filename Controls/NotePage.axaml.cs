@@ -47,7 +47,7 @@ public partial class NotePage : UserControl
 
         //saves the note to the storage
         //if the app crashes, feel free to comment out for the time being
-        StorageController.Notes.Create(noteTitle, noteData, noteID, noteDate);
+        StorageController.Note.Create(noteTitle, noteData, noteID, noteDate);
 
         //adds it to the viewable list
         NoteListControl.AddNoteToList(noteTitle, noteDate.ToString("yyyy-MM-dd"), noteID);
@@ -81,7 +81,7 @@ public partial class NotePage : UserControl
         yesButton.Click += (sender, e) =>
         {
             // Deletes the selected note from the storage.
-            StorageController.Notes.Delete(noteIndex);
+            StorageController.Note.Delete(noteIndex);
 
             // Deletes the selected note from the visible list.
             NoteListControl.RemoveNoteFromList(noteIndex);
@@ -109,7 +109,7 @@ public partial class NotePage : UserControl
         }
 
         // Deletes the selected note from the storage.
-        StorageController.Notes.Delete(noteIndex);
+        StorageController.Note.Delete(noteIndex);
 
         // Deletes the selected note from the visible list.
         NoteListControl.RemoveNoteFromList(noteIndex);
@@ -126,7 +126,7 @@ public partial class NotePage : UserControl
         int noteIndex = NoteListControl.lastSelectionIndex + 1;
 
         // Retrieve the data of the selected note
-        Notes noteData = StorageController.Notes.Get(noteIndex);
+        Note noteData = StorageController.Note.Get(noteIndex);
 
         // Update the content of the popup with note information
         if (noteData != null)

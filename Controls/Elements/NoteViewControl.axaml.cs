@@ -2,6 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Markup.Xaml;
+using static NotABook.StorageController;
 
 namespace NotABook;
 
@@ -9,6 +10,7 @@ public partial class NoteViewControl : UserControl
 {
     public static TextBox noteTitle;
     public static TextBox noteContent;
+    public static TextBox noteID;
 
     public static Button saveButton;
     public static Button viewButton;
@@ -26,6 +28,7 @@ public partial class NoteViewControl : UserControl
 
         noteTitle = this.FindControl<TextBox>("NoteTitle");
         noteContent = this.FindControl<TextBox>("NoteText");
+        noteID = this.FindControl<TextBox>("NoteID");
 
         saveButton = this.FindControl<Button>("SaveButton");
         viewButton = this.FindControl<Button>("ViewButton");
@@ -36,5 +39,14 @@ public partial class NoteViewControl : UserControl
         notePopup = this.FindControl<Popup>("NotePopup");
         confirmationPopUp = this.FindControl<Popup>("ConfirmationPopup");
 
+    }
+
+    public static void ViewNote(int NoteID)
+    {
+        Note note = Note.Get(NoteID);
+        noteTitle.Text = note.Name;
+        noteContent.Text = note.Data;
+        noteID.Text = NoteID.ToString();
+        notePopup.IsOpen = true;
     }
 }
