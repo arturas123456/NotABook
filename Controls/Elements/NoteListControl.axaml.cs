@@ -24,7 +24,10 @@ public partial class NoteListControl : UserControl
         UpdateNoteList();
 
         backupTimer = new Timer(OnTimerCallback, null, TimeSpan.Zero, TimeSpan.FromMinutes(10));
+    }
 
+    public static void setNoteListEvents()
+    {
         foreach (var item in _NotePanel.Children)
         {
             item.DoubleTapped += (sender, e) =>
@@ -94,6 +97,8 @@ public partial class NoteListControl : UserControl
         {
             AddNoteToList(note.Name, note.Date.ToString("yyyy-MM-dd"), note.Id);
         }
+
+        setNoteListEvents();
     }
 
     public static int FindHighestID()
