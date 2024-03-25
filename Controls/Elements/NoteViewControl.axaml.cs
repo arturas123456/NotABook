@@ -47,6 +47,5 @@ public partial class NoteViewControl : UserControl
         noteTitle.Text = note.Name;
         noteContent.Text = note.Data;
         noteID.Text = NoteID.ToString();
-        notePopup.IsOpen = true;
     }
 }

@@ -19,11 +19,6 @@ public partial class NotePage : UserControl
             createNote();
         };
 
-        NoteViewControl.viewButton.Click += (sender, e) =>
-        {
-            viewNote();
-        };
-
         NoteListControl.deleteButton.Click += (sender, e) =>
         {
             deleteNote();
@@ -115,30 +110,5 @@ public partial class NotePage : UserControl
         NoteListControl.RemoveNoteFromList(noteIndex);
 
 
-    }
-
-    /// <summary>
-    /// Views the selected note.
-    /// </summary>
-    public void viewNote()
-    {
-        //Getting the index of a selected note
-        int noteIndex = NoteListControl.lastSelectionIndex + 1;
-
-        // Retrieve the data of the selected note
-        Note noteData = StorageController.Note.Get(noteIndex);
-
-        // Update the content of the popup with note information
-        if (noteData != null)
-        {
-            NoteViewControl.notePopup.FindControl<TextBlock>("NotePopupText").Text = $"Title: {noteData.Name}\nDate: {noteData.Date.ToString("yyyy-MM-dd")}\nData: {noteData.Data}";
-            NoteViewControl.notePopup.IsOpen = true;
-
-        }
-        else
-        {
-            NoteViewControl.notePopup.FindControl<TextBlock>("NotePopupText").Text = "Note not found";
-            NoteViewControl.notePopup.IsOpen = true;
-        }
     }
 }
