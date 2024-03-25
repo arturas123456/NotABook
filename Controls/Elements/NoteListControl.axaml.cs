@@ -11,6 +11,8 @@ namespace NotABook;
 
 public partial class NoteListControl : UserControl
 {
+    public static List<int> selectedNotes = new List<int>();
+
     public static StackPanel _NotePanel;
     public static List<int> selectionList = new List<int>();
     public static int lastSelectionIndex = -1;
@@ -34,6 +36,27 @@ public partial class NoteListControl : UserControl
             {
                 viewNote(sender);
             };
+
+            item.Tapped += (sender, e) =>
+            {
+                selectNote(sender);
+            };
+        }
+    }
+
+    public static void selectNote(object sender)
+    {
+        int noteID = int.Parse((sender as NoteListItemControl).Tag.ToString());
+
+        if (selectedNotes.Contains(noteID))
+        {
+            selectedNotes.Remove(noteID);
+            (sender as NoteListItemControl).Classes.Remove("selected");
+        }
+        else
+        {
+            selectedNotes.Add(noteID);
+            (sender as NoteListItemControl).Classes.Add("selected");
         }
     }
 
@@ -65,23 +88,6 @@ public partial class NoteListControl : UserControl
         }
 
         else return;
-    }
-
-    public void updateSelection(object sender, SelectionChangedEventArgs e)
-    {
-
-        //lastSelectionIndex = _NotePanel.SelectedIndex;
-        if (SidebarControl.isMultiple.IsChecked == true)
-        {
-            if (selectionList.IndexOf(lastSelectionIndex) == -1) selectionList.Add(lastSelectionIndex);
-            else selectionList.Remove(lastSelectionIndex);
-        }
-        else
-        {
-            //if (_NotePanel.SelectedItems.Count > 1) _NotePanel.UnselectAll();
-            if (selectionList.IndexOf(lastSelectionIndex) == -1) selectionList.Add(lastSelectionIndex);
-            else selectionList.Remove(lastSelectionIndex);
-        }
     }
 
     public static void ClearNoteList()

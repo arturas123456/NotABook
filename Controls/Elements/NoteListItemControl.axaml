@@ -10,7 +10,7 @@
 		<!-- Set Defaults -->
 		<Setter Property="Template">
 			<ControlTemplate>
-				<ListBoxItem Tag="{ TemplateBinding NoteID }" Background="{ DynamicResource Background900 }" Padding="10">
+				<ListBoxItem x:Name="NoteItem" Tag="{ TemplateBinding NoteID }" Background="{ DynamicResource Background900 }" Padding="10">
 					<StackPanel Orientation="Horizontal">
 						<Label Content="{ TemplateBinding NoteTitle }" HorizontalAlignment="Left" />
 						<Label Content="{ TemplateBinding NoteDate }" HorizontalAlignment="Right" />
@@ -20,7 +20,18 @@
 		</Setter>
 	</Style>
 
-	<Style Selector="ListBoxItem">
-		<Setter Property="Padding" Value="0"/>
+	<Style Selector="controls|NoteListItemControl.selected">
+
+		<!-- Set Defaults -->
+		<Setter Property="Template">
+			<ControlTemplate>
+				<ListBoxItem Tag="{ TemplateBinding NoteID }" Background="Gray" Padding="10">
+					<StackPanel Orientation="Horizontal">
+						<Label Content="{ TemplateBinding NoteTitle }" HorizontalAlignment="Left" Foreground="White" />
+						<Label Content="{ TemplateBinding NoteDate }" HorizontalAlignment="Right" Foreground="White" />
+					</StackPanel>
+				</ListBoxItem>
+			</ControlTemplate>
+		</Setter>
 	</Style>
 </Styles>

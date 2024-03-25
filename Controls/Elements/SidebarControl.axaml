@@ -16,7 +16,6 @@
 			<local:CalendarControl />
 		</Grid>
 		<Grid Grid.Row="1" Margin="5 0" VerticalAlignment="Center">
-			<CheckBox x:Name="IsMultiple" Content="Select Multiple"/>
 			<Button x:Name="SelectAllButton" Background="{DynamicResource LightPrimary600}" Content="Select All" Width="150" VerticalAlignment="Bottom" HorizontalAlignment="Right" HorizontalContentAlignment="Center"/>
 		</Grid>
 		<Grid Grid.Row="2">
