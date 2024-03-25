@@ -43,4 +43,29 @@ public partial class Navbar : UserControl
             Console.WriteLine("Export operation cancelled.");
         }
     }
+
+    private async void Import_Click(object sender, RoutedEventArgs e)
+    {
+        // Ask user where to import data from
+        var dialog = new OpenFileDialog();
+        dialog.AllowMultiple = false;
+        dialog.Title = "Import Data";
+        dialog.Filters.Add(new FileDialogFilter() { Name = "JSON Files", Extensions = { "json" } });
+
+        var result = await dialog.ShowAsync((Window)this.VisualRoot);
+        if (result != null)
+        {
+            if (StorageController.CheckFile(result)) {
+                StorageController.ImportData(result);
+                NoteListControl.UpdateNoteList();
+            } else
+            {
+                Console.WriteLine("Invalid file format.");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Import operation cancelled.");
+        }
+    }
 }
