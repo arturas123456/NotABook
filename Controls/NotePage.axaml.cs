@@ -5,7 +5,7 @@ using Avalonia.Controls.Converters;
 using Avalonia.Controls.Primitives;
 using Avalonia.Markup.Xaml;
 using System;
-using static NotABook.StorageController;
+using System.Collections.Generic;
 
 namespace NotABook;
 
@@ -23,11 +23,6 @@ public partial class NotePage : UserControl
         {
             deleteNotes();
         };
-    }
-
-    private void ClosePopup_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
-    {
-        NoteViewControl.notePopup.IsOpen = false;
     }
 
     /// <summary>
@@ -62,20 +57,27 @@ public partial class NotePage : UserControl
     public void deleteNotes()
     {
         // Get the index of selected note.
-        int noteIndex = NoteListControl.lastSelectionIndex;
+        List<int> selectedNotes = NoteListControl.selectedNotes;
 
-        /*
-        if (noteIndex == -1)
+        if (selectedNotes.Count == 0)
         {
-            NoteViewControl.confirmationPopUp.FindControl<TextBlock>("NotePopupText").Text = "Please select a note to delete.";
-            NoteViewControl.notePopup.IsOpen = true;
+            NoteViewControl.emptyDelPopup.IsOpen = true;
+            var closeEmptyDelButton = NoteViewControl.emptyDelPopup.FindControl<Button>("CloseEmptyDeletionPopupButton");
+            closeEmptyDelButton.Click += (sender, e) => { NoteViewControl.emptyDelPopup.IsOpen = false; };
             return;
         }
-        */
 
-        // Update the content of the popup with confirmation message
-        NoteViewControl.confirmationPopUp.FindControl<TextBlock>("NotePopupText").Text = "Are you sure you want to delete this note?";
-        NoteViewControl.confirmationPopUp.IsOpen = true;
+        if (selectedNotes.Count == 1)
+        {
+            NoteViewControl.confirmationPopUp.FindControl<TextBlock>("ConfirmationText").Text = "Are you sure you want to delete this note?";
+            NoteViewControl.confirmationPopUp.IsOpen = true;
+        }
+
+        else if (selectedNotes.Count > 1)
+        {
+            NoteViewControl.confirmationPopUp.FindControl<TextBlock>("ConfirmationText").Text = "Are you sure you want to delete these notes?";
+            NoteViewControl.confirmationPopUp.IsOpen = true;
+        }
 
         // Find buttons for Yes and No
         var yesButton = NoteViewControl.confirmationPopUp.FindControl<Button>("YesButton");
@@ -93,6 +95,8 @@ public partial class NotePage : UserControl
             NoteListControl.UpdateNoteList();
 
             NoteViewControl.confirmationPopUp.IsOpen = false;
+
+            selectedNotes.Clear();
         };
 
         noButton.Click += (sender, e) =>
@@ -100,25 +104,5 @@ public partial class NotePage : UserControl
             // Close the popup
             NoteViewControl.confirmationPopUp.IsOpen = false;
         };
-    }
-    public void deleteNote1()
-    {
-        // Get the index of selected note.
-        int noteIndex = NoteListControl.lastSelectionIndex;
-
-        if (noteIndex == -1)
-        {
-            NoteViewControl.notePopup.FindControl<TextBlock>("NotePopupText").Text = "Please select a note to delete.";
-            NoteViewControl.notePopup.IsOpen = true;
-            return;
-        }
-
-        // Deletes the selected note from the storage.
-        StorageController.Note.Delete(noteIndex);
-
-        // Deletes the selected note from the visible list.
-        NoteListControl.RemoveNoteFromList(noteIndex);
-
-
     }
 }

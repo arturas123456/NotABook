@@ -1,7 +1,6 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
-using Avalonia.Markup.Xaml;
 using static NotABook.StorageController;
 
 namespace NotABook;
@@ -18,7 +17,7 @@ public partial class NoteViewControl : UserControl
     public static Button yesButton;
     public static Button noButton;
 
-    public static Popup notePopup;
+    public static Popup emptyDelPopup;
     public static Popup confirmationPopUp;
 
 
@@ -36,7 +35,7 @@ public partial class NoteViewControl : UserControl
         yesButton = this.FindControl<Button>("YesButton");
         noButton = this.FindControl<Button>("NoButton");
 
-        notePopup = this.FindControl<Popup>("NotePopup");
+        emptyDelPopup = this.FindControl<Popup>("EmptyDeletionPopup");
         confirmationPopUp = this.FindControl<Popup>("ConfirmationPopup");
 
     }
