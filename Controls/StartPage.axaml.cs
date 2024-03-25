@@ -11,13 +11,5 @@ public partial class StartPage : UserControl
     public StartPage()
     {
         InitializeComponent();
-
-        _btn = this.FindControl<Button>("NewNoteButton");
-
-        // adds a new note to the list when the button is clicked
-        _btn.Click += (sender, e) => { 
-            NoteListControl.AddNoteToList("Titlel", "Datel");
-        };
-
     }
 }

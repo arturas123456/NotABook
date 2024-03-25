@@ -85,7 +85,7 @@ namespace NotABook
             /// <param name="name">Name of the note.</param>
             /// <param name="data">Data of the note.</param>
             /// <param name="date">Optional creation date of the note.</param>
-            public static void Create(string name, string data, DateTime? date = null)
+            public static void Create(string name, string data, int id, DateTime? date = null)
             {
                 var notes = LoadNotes();
                 var newNote = new Notes
@@ -93,7 +93,7 @@ namespace NotABook
                     Name = name,
                     Data = data,
                     Date = date ?? DateTime.Now,
-                    Id = notes.Count > 0 ? notes.Max(n => n.Id) + 1 : 1
+                    Id = id
                 };
                 notes.Add(newNote);
                 notes = notes.OrderBy(n => n.Date).ToList();

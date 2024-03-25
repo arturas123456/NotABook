@@ -44,11 +44,12 @@ public partial class NoteListControl : UserControl
         StorageController.Notes.Backup();
     }
 
-    public static void AddNoteToList(string title, string date)
+    public static void AddNoteToList(string title, string date, int id)
     {
         NoteListItemControl noteListItem = new NoteListItemControl();
         noteListItem.NoteTitle = title;
         noteListItem.NoteDate = date;
+        noteListItem.Tag = id;
 
         _NotePanel.Items.Add(noteListItem);
     }
@@ -92,8 +93,21 @@ public partial class NoteListControl : UserControl
         List<Notes> notes = StorageController.Notes.LoadNotes();
         foreach (var note in notes)
         {
-            AddNoteToList(note.Name, note.Date.ToString("yyyy-MM-dd"));
+            AddNoteToList(note.Name, note.Date.ToString("yyyy-MM-dd"), note.Id);
         }
+    }
+
+    public static int FindHighestID()
+    {
+        int highestID = 0;
+        foreach (NoteListItemControl note in _NotePanel.Items)
+        {
+            if (int.Parse(note.Tag.ToString()) > highestID)
+            {
+                highestID = int.Parse(note.Tag.ToString());
+            }
+        }
+        return highestID;
     }
 
     private void InitializeComponent()
