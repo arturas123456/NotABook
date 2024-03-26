@@ -23,6 +23,7 @@ public partial class NoteListControl : UserControl
         deleteButton = this.FindControl<Button>("DeleteButton");
         _NotePanel = this.FindControl<StackPanel>("NotePanel");
         UpdateNoteList();
+        updateButtons();
 
         backupTimer = new Timer(OnTimerCallback, null, TimeSpan.Zero, TimeSpan.FromMinutes(10));
     }
@@ -56,6 +57,20 @@ public partial class NoteListControl : UserControl
         {
             selectedNotes.Add(noteID);
             (sender as NoteListItemControl).Classes.Add("selected");
+        }
+
+        updateButtons();
+    }
+
+    public static void updateButtons()
+    {
+        if (selectedNotes.Count > 0)
+        {
+            deleteButton.IsEnabled = true;
+        }
+        else
+        {
+            deleteButton.IsEnabled = false;
         }
     }
 
