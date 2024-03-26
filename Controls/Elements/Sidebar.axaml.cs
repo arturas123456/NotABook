@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace NotABook;
 
-public partial class SidebarControl : UserControl
+public partial class Sidebar : UserControl
 {
-    public SidebarControl()
+    public Sidebar()
     {
         InitializeComponent();
     }

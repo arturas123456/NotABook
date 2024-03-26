@@ -1,11 +1,11 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
-using static NotABook.StorageController;
+using static NotABook.Controllers.StorageController;
 
 namespace NotABook;
 
-public partial class NoteViewControl : UserControl
+public partial class NoteView : UserControl
 {
     public static TextBox noteTitle;
     public static TextBox noteContent;
@@ -21,7 +21,7 @@ public partial class NoteViewControl : UserControl
     public static Popup confirmationPopUp;
 
 
-    public NoteViewControl()
+    public NoteView()
     {
         InitializeComponent();
 

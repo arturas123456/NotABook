@@ -2,8 +2,9 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
+using NotABook.Controllers;
 using System;
-using static NotABook.StorageController;
+using static NotABook.Controllers.StorageController;
 
 namespace NotABook;
 
@@ -57,7 +58,7 @@ public partial class Navbar : UserControl
         {
             if (StorageController.CheckFile(result)) {
                 StorageController.ImportData(result);
-                NoteListControl.UpdateNoteList();
+                NoteList.UpdateNoteList();
             } else
             {
                 Console.WriteLine("Invalid file format.");

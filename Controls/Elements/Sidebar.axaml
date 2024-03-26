@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="600"
 			 xmlns:local="clr-namespace:NotABook"
-             x:Class="NotABook.SidebarControl">
+             x:Class="NotABook.Sidebar">
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition MaxHeight="300" Height="25*"/>
@@ -13,13 +13,13 @@
 		</Grid.RowDefinitions>
 		
 		<Grid Grid.Row="0" Width="300">
-			<local:CalendarControl />
+			<local:Calendar />
 		</Grid>
 		<Grid Grid.Row="1" Margin="5 0" VerticalAlignment="Center">
 			<Button x:Name="SelectAllButton" Background="{DynamicResource LightPrimary600}" Content="Select All" Width="150" VerticalAlignment="Bottom" HorizontalAlignment="Right" HorizontalContentAlignment="Center"/>
 		</Grid>
 		<Grid Grid.Row="2">
-			<local:NoteListControl />
+			<local:NoteList />
 		</Grid>
 	</Grid>
 </UserControl>

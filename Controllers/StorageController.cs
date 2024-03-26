@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
 
-namespace NotABook
+namespace NotABook.Controllers
 {
     internal class StorageController
     {
@@ -152,7 +152,8 @@ namespace NotABook
                 if (!File.Exists(NotesFilePath))
                 {
                     File.Create(NotesFilePath).Close();
-                } else
+                }
+                else
                 {
                     var json = File.ReadAllText(NotesFilePath);
                     return JsonConvert.DeserializeObject<List<Note>>(json) ?? new List<Note>();
@@ -187,7 +188,7 @@ namespace NotABook
                     var oldest = fileList.OrderBy(f => new FileInfo(f).CreationTime).First();
                     File.Delete(oldest);
                 }
-                
+
                 var filePath = BackupPath + $"/Notes_{DateTime.Now:yyyy-MM-dd_HH-mm-ss}.json";
                 var json = JsonConvert.SerializeObject(notes);
                 File.WriteAllText(filePath, json);
@@ -217,7 +218,8 @@ namespace NotABook
             if (!File.Exists(SettingsFilePath))
             {
                 File.Create(SettingsFilePath).Close();
-            } else
+            }
+            else
             {
                 var json = File.ReadAllText(SettingsFilePath);
                 return JsonConvert.DeserializeObject<Settings>(json);

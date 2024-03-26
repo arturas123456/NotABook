@@ -2,12 +2,12 @@
 using Avalonia.Input;
 using Microsoft.Win32;
 
-namespace NotABook
+namespace NotABook.Controllers
 {
-    internal class StartupControl
+    internal class StartupController
     {
         bool enabled = false;
-        
+
         private void SetStartup(bool enabled)
         {
             RegistryKey key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);

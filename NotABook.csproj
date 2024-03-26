@@ -21,4 +21,23 @@
     <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.6" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
+
+
+  <ItemGroup>
+    <Compile Update="Controls\Elements\Calendar.axaml.cs">
+      <DependentUpon>Calendar.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\Elements\NoteList.axaml.cs">
+      <DependentUpon>NoteList.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\Elements\NoteListItem.axaml.cs">
+      <DependentUpon>NoteListItem.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\Elements\NoteView.axaml.cs">
+      <DependentUpon>NoteView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\Elements\Sidebar.axaml.cs">
+      <DependentUpon>Sidebar.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>

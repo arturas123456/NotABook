@@ -6,6 +6,7 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Markup.Xaml;
 using System;
 using System.Collections.Generic;
+using NotABook.Controllers;
 
 namespace NotABook;
 
@@ -15,11 +16,11 @@ public partial class NotePage : UserControl
     {
         InitializeComponent();
 
-        NoteViewControl.saveButton.Click += (sender, e) => {
+        NoteView.saveButton.Click += (sender, e) => {
             createNote();
         };
 
-        NoteListControl.deleteButton.Click += (sender, e) =>
+        NoteList.deleteButton.Click += (sender, e) =>
         {
             deleteNotes();
         };
@@ -30,24 +31,24 @@ public partial class NotePage : UserControl
     /// </summary>
     public void createNote()
     {
-        string noteTitle = NoteViewControl.noteTitle.Text;
-        string noteData = NoteViewControl.noteContent.Text;
+        string noteTitle = NoteView.noteTitle.Text;
+        string noteData = NoteView.noteContent.Text;
         DateTime noteDate = DateTime.Now; //change to selected date instead of 'Now' once calendar is implemented
-        int noteID = int.Parse(NoteViewControl.noteID.Content.ToString());
-        if (noteID <= 0) noteID = NoteListControl.FindHighestID() + 1;
+        int noteID = int.Parse(NoteView.noteID.Content.ToString());
+        if (noteID <= 0) noteID = NoteList.FindHighestID() + 1;
 
         //saves the note to the storage
         //if the app crashes, feel free to comment out for the time being
         StorageController.Note.Create(noteTitle, noteData, noteID, noteDate);
 
         //adds it to the viewable list
-        NoteListControl.UpdateNoteList();
-        // NoteListControl.AddNoteToList(noteTitle, noteDate.ToString("yyyy-MM-dd"), noteID);
+        NoteList.UpdateNoteList();
+        // NoteList.AddNoteToList(noteTitle, noteDate.ToString("yyyy-MM-dd"), noteID);
 
         // Clear the textboxes
-        NoteViewControl.noteTitle.Text = "";
-        NoteViewControl.noteContent.Text = "";
-        NoteViewControl.noteID.Content = "0";
+        NoteView.noteTitle.Text = "";
+        NoteView.noteContent.Text = "";
+        NoteView.noteID.Content = "0";
     }
 
 
@@ -57,44 +58,44 @@ public partial class NotePage : UserControl
     public void deleteNotes()
     {
         // Get the index of selected note.
-        List<int> selectedNotes = NoteListControl.selectedNotes;
+        List<int> selectedNotes = NoteList.selectedNotes;
 
         if (selectedNotes.Count == 0)
         {
-            NoteViewControl.emptyDelPopup.IsOpen = true;
-            var closeEmptyDelButton = NoteViewControl.emptyDelPopup.FindControl<Button>("CloseEmptyDeletionPopupButton");
-            closeEmptyDelButton.Click += (sender, e) => { NoteViewControl.emptyDelPopup.IsOpen = false; };
+            NoteView.emptyDelPopup.IsOpen = true;
+            var closeEmptyDelButton = NoteView.emptyDelPopup.FindControl<Button>("CloseEmptyDeletionPopupButton");
+            closeEmptyDelButton.Click += (sender, e) => { NoteView.emptyDelPopup.IsOpen = false; };
             return;
         }
 
         if (selectedNotes.Count == 1)
         {
-            NoteViewControl.confirmationPopUp.FindControl<TextBlock>("ConfirmationText").Text = "Are you sure you want to delete this note?";
-            NoteViewControl.confirmationPopUp.IsOpen = true;
+            NoteView.confirmationPopUp.FindControl<TextBlock>("ConfirmationText").Text = "Are you sure you want to delete this note?";
+            NoteView.confirmationPopUp.IsOpen = true;
         }
 
         else if (selectedNotes.Count > 1)
         {
-            NoteViewControl.confirmationPopUp.FindControl<TextBlock>("ConfirmationText").Text = "Are you sure you want to delete these notes?";
-            NoteViewControl.confirmationPopUp.IsOpen = true;
+            NoteView.confirmationPopUp.FindControl<TextBlock>("ConfirmationText").Text = "Are you sure you want to delete these notes?";
+            NoteView.confirmationPopUp.IsOpen = true;
         }
 
         // Find buttons for Yes and No
-        var yesButton = NoteViewControl.confirmationPopUp.FindControl<Button>("YesButton");
-        var noButton = NoteViewControl.confirmationPopUp.FindControl<Button>("NoButton");
+        var yesButton = NoteView.confirmationPopUp.FindControl<Button>("YesButton");
+        var noButton = NoteView.confirmationPopUp.FindControl<Button>("NoButton");
 
         // Add event handlers for buttons
         yesButton.Click += (sender, e) =>
         {
-            foreach (int id in NoteListControl.selectedNotes)
+            foreach (int id in NoteList.selectedNotes)
             {
                 // Deletes the selected note from the storage.
                 StorageController.Note.Delete(id);
             }
 
-            NoteListControl.UpdateNoteList();
+            NoteList.UpdateNoteList();
 
-            NoteViewControl.confirmationPopUp.IsOpen = false;
+            NoteView.confirmationPopUp.IsOpen = false;
 
             selectedNotes.Clear();
         };
@@ -102,7 +103,7 @@ public partial class NotePage : UserControl
         noButton.Click += (sender, e) =>
         {
             // Close the popup
-            NoteViewControl.confirmationPopUp.IsOpen = false;
+            NoteView.confirmationPopUp.IsOpen = false;
         };
     }
 }

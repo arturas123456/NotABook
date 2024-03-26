@@ -5,9 +5,9 @@ using System;
 
 namespace NotABook;
 
-public partial class CalendarControl : UserControl
+public partial class Calendar : UserControl
 {
-    public CalendarControl()
+    public Calendar()
     {
         InitializeComponent();
         CalendarDate.Text = DateTime.Now.ToString("yyy-MM-dd");

@@ -1,15 +1,16 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
+using NotABook.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using static NotABook.StorageController;
+using static NotABook.Controllers.StorageController;
 
 namespace NotABook;
 
-public partial class NoteListControl : UserControl
+public partial class NoteList : UserControl
 {
     public static List<int> selectedNotes = new List<int>();
 
@@ -17,7 +18,7 @@ public partial class NoteListControl : UserControl
     public static int lastSelectionIndex = -1;
     public static Button deleteButton;
     private static Timer backupTimer;
-    public NoteListControl()
+    public NoteList()
     {
         InitializeComponent();
         deleteButton = this.FindControl<Button>("DeleteButton");
@@ -76,7 +77,7 @@ public partial class NoteListControl : UserControl
 
     public static void viewNote(object sender)
     {
-        NoteViewControl.ViewNote(int.Parse((sender as NoteListItemControl).Tag.ToString()));
+        NoteView.ViewNote(int.Parse((sender as NoteListItemControl).Tag.ToString()));
     }
 
     private static void OnTimerCallback(object? state)

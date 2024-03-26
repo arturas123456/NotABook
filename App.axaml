@@ -19,7 +19,7 @@
 					ChromeAltLow="#ffb4b4b4" ChromeBlackHigh="Black" ChromeBlackLow="#ffb4b4b4" ChromeBlackMedium="Black" ChromeBlackMediumLow="Black" ChromeDisabledHigh="#ff333333" ChromeDisabledLow="#ff9a9a9a" ChromeGray="Gray" ChromeHigh="Gray" ChromeLow="#ff151515" ChromeMedium="#ff1d1d1d" ChromeMediumLow="#ff2c2c2c" ChromeWhite="White" ListLow="#ff1d1d1d" ListMedium="#ff333333" RegionColor="#ff050a14" />
 			</FluentTheme.Palettes>
 		</FluentTheme>
-		<StyleInclude Source="/Controls/Elements/NoteListItemControl.axaml" />
+		<StyleInclude Source="/Controls/Elements/NoteListItem.axaml" />
     </Application.Styles>
 
 	
